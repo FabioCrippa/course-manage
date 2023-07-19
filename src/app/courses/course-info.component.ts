@@ -8,12 +8,23 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class CourseInfoComponent implements OnInit {
     
-    course: Course;
+    /** ponto de interrogação(?): faz com que o typescript identifica esse parâmetro como opcional*/
+    
+    course?: Course;
+    // courseId: number;
 
     constructor(private activatedRoute: ActivatedRoute, private courseService: CourseService) {}
 
     ngOnInit(): void {
-        this.course = this.courseService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id'));
+    // this.courseId = +this.activatedRoute.snapshot.paramMap.get('id')
+        
+        const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id') || '');
+        this.course = this.courseService.retrieveById(id);
                 
     }
+    /**crud: Create, Retrieve,  Update, Delete */
+    save(): void {
+        // this.courseService.save(this.course!);
+    }
+
 }

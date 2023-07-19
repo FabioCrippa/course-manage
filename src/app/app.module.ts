@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { CourseListComponent } from './courses/course-list.component';
@@ -24,18 +24,19 @@ import { CourseInfoComponent } from './courses/course-info.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
 
       {
-        path: 'courses', component: CourseListComponent
+        path: 'COURSES', component: CourseListComponent
       },
 
       {
-        path: 'courses/info/:id', component: CourseInfoComponent
+        path: 'COURSES/info/:id', component: CourseInfoComponent
       },
 
       {
-        path: '', redirectTo: 'courses', pathMatch: 'full'
+        path: '', redirectTo: 'COURSES', pathMatch: 'full'
       },
 
       {
